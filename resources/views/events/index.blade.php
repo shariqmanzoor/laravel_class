@@ -21,19 +21,28 @@
                 <th>City</th>
                 <th>Country</th>
                 <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>View</th>
             </tr>
         </thead>
         <tbody>
             @foreach($events as $event)
             <tr>
                 <td>{{ $event->id }}</td>
-                <td>{{ $event->name }}</td>
+                <td><a href="{{ route('events.show', $event->id) }}">{{ $event->name }}</a></td>
                 <td>{{ $event->city }}</td>
                 <td>{{ $event->country }}</td>
                 <td>{{ $event->description }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <div>
+        {{ $events->links() }}
+    </div>
 </body>
 </html>
